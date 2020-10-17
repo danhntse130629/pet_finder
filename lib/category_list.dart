@@ -18,7 +18,7 @@ class CategoryList extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          (category == Category.HAMSTER ? "Hamster" : category == Category.CAT ? "Cat" : category == Category.BUNNY ? "Bunny" : "Dog") + " Category",
+          (category == Category.HAMSTER ? "Facebook Ad" : category == Category.CAT ? "Web content" : category == Category.BUNNY ? "Article" : "Advertise"),
           style: TextStyle(
             color: Colors.grey[800],
           ),
@@ -52,9 +52,9 @@ class CategoryList extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
-                buildFilter("Mating", false),
-                buildFilter("Adoption", true),
-                buildFilter("Disappear", true),
+                buildFilter("Pending", false),
+                buildFilter("Newest", true),
+                buildFilter("Ended", false),
 
               ],
             ),

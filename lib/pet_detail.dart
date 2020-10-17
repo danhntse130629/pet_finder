@@ -96,18 +96,18 @@ class PetDetail extends StatelessWidget {
                           Row(
                             children: [
 
-                              Icon(
-                                Icons.location_on,
-                                color: Colors.grey[600],
-                                size: 20,
-                              ),
+//                              Icon(
+//                                Icons.location_on,
+//                                color: Colors.grey[600],
+//                                size: 20,
+//                              ),
 
                               SizedBox(
                                 width: 4,
                               ),
 
                               Text(
-                                pet.location,
+                                "(" + pet.location + "vnđ)",
                                 style: TextStyle(
                                   color: Colors.grey[600],
                                   fontSize: 14,
@@ -119,7 +119,7 @@ class PetDetail extends StatelessWidget {
                               ),
 
                               Text(
-                                "(" + pet.distance + "km)",
+                                "(" + pet.distance + "days)",
                                 style: TextStyle(
                                   color: Colors.grey[600],
                                   fontSize: 14,

@@ -88,7 +88,7 @@ class PetWidget extends StatelessWidget {
 
                   Container(
                     decoration: BoxDecoration(
-                      color: pet.condition == "Adoption" ? Colors.orange[100] : pet.condition == "Disappear" ? Colors.red[100] : Colors.blue[100],
+                      color: pet.condition == "Newest" ? Colors.orange[100] : pet.condition == "Disappear" ? Colors.red[100] : Colors.blue[100],
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
@@ -97,7 +97,7 @@ class PetWidget extends StatelessWidget {
                     child: Text(
                       pet.condition,
                       style: TextStyle(
-                        color: pet.condition == "Adoption" ? Colors.orange : pet.condition == "Disappear" ? Colors.red : Colors.blue,
+                        color: pet.condition == "Newest" ? Colors.orange : pet.condition == "Disappear" ? Colors.red : Colors.blue,
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                       ),
@@ -124,18 +124,18 @@ class PetWidget extends StatelessWidget {
                   Row(
                     children: [
 
-                      Icon(
-                        Icons.location_on,
-                        color: Colors.grey[600],
-                        size: 18,
-                      ),
+//                      Icon(
+//                        Icons.location_on,
+//                        color: Colors.grey[600],
+//                        size: 18,
+//                      ),
 
                       SizedBox(
                         width: 4,
                       ),
 
                       Text(
-                        pet.location,
+                        "(" + pet.location + "vnđ)",
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
@@ -147,7 +147,7 @@ class PetWidget extends StatelessWidget {
                       ),
 
                       Text(
-                        "(" + pet.distance + "km)",
+                        "(" + pet.distance + "days)",
                         style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,

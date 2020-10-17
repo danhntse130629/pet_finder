@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pet_finder/data.dart';
 import 'package:pet_finder/pet_widget.dart';
 import 'package:pet_finder/category_list.dart';
+import 'package:pet_finder/views/login_page.dart';
+import 'package:pet_finder/sign_in.dart';
 
 class Principal extends StatefulWidget {
   @override
@@ -17,13 +19,27 @@ class _PrincipalState extends State<Principal> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        brightness: Brightness.light,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Icon(
-          Icons.sort,
-          color: Colors.grey[800],
+        centerTitle: true,
+        backgroundColor: Colors.lightBlueAccent,
+        title: new Text("Content outsource"),
+        leading: new Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: _showPopupMenu,
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(imageUrl),
+              radius: 55,
+            ),
+          ),
+          //CircleAvatar(backgroundImage: NetworkImage(imageUrl),),
         ),
+//        brightness: Brightness.light,
+//        backgroundColor: Colors.transparent,
+//        elevation: 0,
+//        leading: Icon(
+//          Icons.sort,
+//          color: Colors.grey[800],
+//        ),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 16),
@@ -39,23 +55,10 @@ class _PrincipalState extends State<Principal> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                "Find Your",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Text(
-                "Lovely pet in anywhere",
+                "Content provider",
                 style: TextStyle(
                   color: Colors.grey[800],
                   fontSize: 24,
@@ -98,7 +101,7 @@ class _PrincipalState extends State<Principal> {
                 children: [
 
                   Text(
-                    "Pet Category",
+                    "Content Category",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -144,7 +147,7 @@ class _PrincipalState extends State<Principal> {
                 children: [
 
                   Text(
-                    "Newest Pet",
+                    "Newest Content",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -170,43 +173,43 @@ class _PrincipalState extends State<Principal> {
               ),
             ),
 
-            Padding(
-              padding: EdgeInsets.only(right: 16, left: 16, bottom: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-
-                  Text(
-                    "Vets Near You",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[800],
-                    ),
-                  ),
-
-                  Icon(
-                    Icons.more_horiz,
-                    color: Colors.grey[800],
-                  ),
-
-                ],
-              ),
-            ),
-
-            Container(
-              height: 130,
-              margin: EdgeInsets.only(bottom: 16),
-              child: PageView(
-                physics: BouncingScrollPhysics(),
-                children: [
-                  buildVet("assets/images/vets/vet_0.png", "Animal Emergency Hospital", "(369) 133-8956"),
-                  buildVet("assets/images/vets/vet_1.png", "Artemis Veterinary Center", "(706) 722-9159"),
-                  buildVet("assets/images/vets/vet_2.png", "Big Lake Vet Hospital", "(598) 4986-9532"),
-                  buildVet("assets/images/vets/vet_3.png", "Veterinary Medical Center", "(33) 8974-559-555"),
-                ],
-              ),
-            ),
+//            Padding(
+//              padding: EdgeInsets.only(right: 16, left: 16, bottom: 16),
+//              child: Row(
+//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                children: [
+//
+//                  Text(
+//                    "Vets Near You",
+//                    style: TextStyle(
+//                      fontSize: 18,
+//                      fontWeight: FontWeight.bold,
+//                      color: Colors.grey[800],
+//                    ),
+//                  ),
+//
+//                  Icon(
+//                    Icons.more_horiz,
+//                    color: Colors.grey[800],
+//                  ),
+//
+//                ],
+//              ),
+//            ),
+//
+//            Container(
+//              height: 130,
+//              margin: EdgeInsets.only(bottom: 16),
+//              child: PageView(
+//                physics: BouncingScrollPhysics(),
+//                children: [
+//                  buildVet("assets/images/vets/vet_0.png", "Animal Emergency Hospital", "(369) 133-8956"),
+//                  buildVet("assets/images/vets/vet_1.png", "Artemis Veterinary Center", "(706) 722-9159"),
+//                  buildVet("assets/images/vets/vet_2.png", "Big Lake Vet Hospital", "(598) 4986-9532"),
+//                  buildVet("assets/images/vets/vet_3.png", "Veterinary Medical Center", "(33) 8974-559-555"),
+//                ],
+//              ),
+//            ),
 
           ],
         ),
@@ -250,10 +253,10 @@ class _PrincipalState extends State<Principal> {
                   child: SizedBox(
                     height: 30,
                     width: 30,
-                    child: Image.asset(
-                      "assets/images/" + (category == Category.HAMSTER ? "hamster" : category == Category.CAT ? "cat" : category == Category.BUNNY ? "bunny" : "dog") + ".png",
-                      fit: BoxFit.fitHeight,
-                    ),
+//                    child: Image.asset(
+//                      "assets/images/" + (category == Category.HAMSTER ? "hamster" : category == Category.CAT ? "cat" : category == Category.BUNNY ? "bunny" : "dog") + ".png",
+//                      fit: BoxFit.fitHeight,
+//                    ),
                   ),
                 ),
               ),
@@ -268,10 +271,10 @@ class _PrincipalState extends State<Principal> {
                 children: [
 
                   Text(
-                    category == Category.HAMSTER ? "Hamsters" : category == Category.CAT ? "Cats" : category == Category.BUNNY ? "Bunnies" : "Dogs",
+                    category == Category.HAMSTER ? "Facebook Ad" : category == Category.CAT ? "Web content" : category == Category.BUNNY ? "Article" : "Advertise",
                     style: TextStyle(
                       color: Colors.grey[800],
-                      fontSize: 16,
+                      fontSize: 13,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -412,5 +415,31 @@ class _PrincipalState extends State<Principal> {
       ),
     );
   }
-
+  void _showPopupMenu() async {
+    await showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(0, 80, 100, 100),
+      items: [
+//        PopupMenuItem(
+//          child: FlatButton(onPressed: () {
+//            signOutGoogle();
+//            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return PersonalityTests();}), ModalRoute.withName('/'));
+//          }, child: Text("Home")),
+//        ),
+//        PopupMenuItem(
+//          child: FlatButton(onPressed: () {
+//            signOutGoogle();
+//            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return HistoryPage(listPerTest: personalityTests,);}), ModalRoute.withName('/'));
+//          }, child: Text("Result History")),
+//        ),
+        PopupMenuItem(
+          child: FlatButton(onPressed: () {
+            signOutGoogle();
+            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return LoginPage();}), ModalRoute.withName('/'));
+          }, child: Text("Sign Out", style: TextStyle(color: Colors.redAccent),)),
+        ),
+      ],
+      elevation: 8.0,
+    );
+  }
 }
